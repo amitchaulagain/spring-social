@@ -27,7 +27,11 @@ public class FacebookController {
 		try {
 			Facebook facebook = connectionRepository.getPrimaryConnection(Facebook.class).getApi();		
 			model.addAttribute("profileLink", facebook.userOperations().getUserProfile().getLink());
+			System.out.println("here iam ");
+System.out.println(facebook.userOperations().getUserProfile().getLink());
 			model.addAttribute("profileInfo", facebook.userOperations().getUserProfile());
+			System.out.println(facebook.userOperations().getUserProfile());
+
 			return "facebook/profile";
 		}  catch (NotConnectedException e) {
 			return "facebook/connect";

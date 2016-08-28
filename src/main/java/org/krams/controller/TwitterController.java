@@ -26,6 +26,7 @@ public class TwitterController {
 	public String getProfile(ModelMap model) {
 		try {
 			Twitter twitter = connectionRepository.getPrimaryConnection(Twitter.class).getApi();
+			System.out.println(twitter);
 			model.addAttribute("profileLink", twitter.userOperations().getUserProfile().getUrl());
 			model.addAttribute("profileInfo", twitter.userOperations().getUserProfile());
 			return "twitter/profile";
